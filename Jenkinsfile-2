@@ -3,12 +3,22 @@ pipeline {
   environment {
    ANSIBLE_PRIVATE_KEY=credentials('secertfile') 
   }
-  stages {
-    stage('Hello') {
-      steps {
-        // sh 'ansible-galaxy collection install -r requirements.yml'
-        sh 'ansible-playbook -i hosts --private-key=$ANSIBLE_PRIVATE_KEY playbook.yml'
+  stage('Setup Ansible') {
+            steps {
+                sh '''
+                    if ! command -v ansible-playbook &> /dev/null
+                    then
+                        sudo apt update
+                        sudo apt install -y ansible
+                    fi
+                '''
+            }
+        }
+        stage('Hello') {
+            steps {
+                withCredentials([sshUserPrivateKey(credentialsId: 'slave1', keyFileVariable: 'ANSIBLE_PRIVATE_KEY')]) {
+                    sh 'ansible-playbook -i hosts --private-key=$ANSIBLE_PRIVATE_KEY playbook.yml'
+                }
+            }
       }
-    }
-  }
 }
