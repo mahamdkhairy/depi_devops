@@ -15,7 +15,7 @@ pipeline {
         //                          inventory: 'dev.inv',
         //                          playbook: 'apache.yml'
         //     }
-        }
+        
         stage('build') {
             steps {
                 withCredentials([usernamePassword(credentialsId:"docker",usernameVariable:"USER",passwordVariable:"PASS")]){
@@ -26,6 +26,7 @@ pipeline {
                 }
             }
         }
+    }
     }
     // post {
     //     success {
