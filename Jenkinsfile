@@ -2,10 +2,19 @@ pipeline {
     agent {label 'ec2'}
 
     stages {
-        stage('prep') {
+        stage("SCM checkout") {
             steps {
                 git 'https://github.com/mahamdkhairy/depi_devops.git'
             }
+        }
+        // stage("Execute Ansible") {
+        //     steps {
+        //         ansiblePlaybook credentialsId: 'private-key',
+        //                          disableHostKeyChecking: true,
+        //                          installation: 'Ansible',
+        //                          inventory: 'dev.inv',
+        //                          playbook: 'apache.yml'
+        //     }
         }
         stage('build') {
             steps {
