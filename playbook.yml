@@ -8,7 +8,8 @@
       known_hosts:
         path: /home/ubuntu/.ssh/known_hosts
         name: "98.82.190.35"
-        key: "{{ lookup('pipe', 'ssh-keyscan -t rsa 98.82.190.35') }}
+        key: "{{ lookup('pipe', 'ssh-keyscan -t rsa 98.82.190.35') }}"
+
     - name: Update apt and install prerequisites
       apt:
         name: "{{ item }}"
