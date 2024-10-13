@@ -11,6 +11,7 @@ pipeline {
             steps {
                 withCredentials([usernamePassword(credentialsId:"docker",usernameVariable:"USER",passwordVariable:"PASS")]){
                 sh 'docker build . -f dockerfile -t ${USER}/nodejs-iamge:v1.${BUILD_NUMBER}'
+                    
                 }
             }
         }
@@ -20,6 +21,8 @@ pipeline {
             withCredentials([usernamePassword(credentialsId:"docker",usernameVariable:"USER",passwordVariable:"PASS")]){
                 sh 'docker login -u ${USER} -p ${PASS}'
                 sh 'docker push ${USER}/nodejs-iamge:v1.${BUILD_NUMBER}'
+                sh 'docker rm -f live'
+                sh 'docker run -d -p 3000:3000 --name live ${USER}/nodejs-iamge:v1.${BUILD_NUMBER}'
                 slackSend(
                 channel: "devops",
                 color: "good",
