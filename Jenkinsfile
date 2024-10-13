@@ -22,7 +22,8 @@ pipeline {
                     sh 'docker build . -f dockerfile -t ${USER}/nodejs-iamge:v1.${BUILD_NUMBER}'
                     sh 'docker login -u ${USER} -p ${PASS}'
                     sh 'docker push ${USER}/nodejs-iamge:v1.${BUILD_NUMBER}' 
-                    sh 'docker run -d -p 3000:3000 ${USER}/nodejs-iamge:v1.${BUILD_NUMBER}'    
+                    sh 'docker rm -f test'
+                    sh 'docker run -d -p 3000:3000 --name test ${USER}/nodejs-iamge:v1.${BUILD_NUMBER}'    
                     }
                 }
             }
