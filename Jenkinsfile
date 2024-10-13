@@ -1,6 +1,6 @@
 pipeline {
-    agent {label 'ec2'}
-
+    // agent {label 'ec2'}
+    agent any
     stages {
         stage("SCM checkout") {
             steps {
