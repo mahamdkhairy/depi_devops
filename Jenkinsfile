@@ -27,21 +27,21 @@ pipeline {
                 }
             }
         }
-    // post {
-    //     success {
-    //         slackSend(
-    //             channel: "devops",
-    //             color: "good",
-    //             message: "${env.JOB_NAME} succeeded. Build no. ${env.BUILD_NUMBER} (<https://hub.docker.com/repository/docker/${USER}/nodejs-iamge/general|Open the image link>)"
-    //         )
-    //       
-    //     }
-    //     failure {
-    //         slackSend(
-    //             channel: "devops",
-    //             color: "danger",
-    //             message: "${env.JOB_NAME} is failed. Build no. ${env.BUILD_NUMBER} URL: ${env.BUILD_URL} (<${env.BUILD_URL}|Open the pipeline>)"
-    //         )
-    //     }
-    // }
+    post {
+        success {
+            slackSend(
+                channel: "devops",
+                color: "good",
+                message: "${env.JOB_NAME} succeeded. Build no. ${env.BUILD_NUMBER} (<https://hub.docker.com/repository/docker/${USER}/nodejs-iamge/general|Open the image link>)"
+            )
+          
+        }
+        failure {
+            slackSend(
+                channel: "devops",
+                color: "danger",
+                message: "${env.JOB_NAME} is failed. Build no. ${env.BUILD_NUMBER} URL: ${env.BUILD_URL} (<${env.BUILD_URL}|Open the pipeline>)"
+            )
+        }
+    }
  }
