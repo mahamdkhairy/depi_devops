@@ -12,7 +12,23 @@ pipeline {
             steps { 
                 sh 'npm install'
                 sh 'npm test'
-            } 
+            }
+            post {
+                success {
+                    slackSend(
+                        channel: "devops",
+                        color: "good",
+                        message: "Test stage passed in ${env.JOB_NAME}. Build no. ${env.BUILD_NUMBER}"
+                    )
+                }
+                failure {
+                    slackSend(
+                        channel: "devops",
+                        color: "danger",
+                        message: "Test stage failed in ${env.JOB_NAME}. Build no. ${env.BUILD_NUMBER}. URL: ${env.BUILD_URL} (<${env.BUILD_URL}|Open the pipeline>)"
+                    )
+                }
+            }
         }
 
         stage('build') {                
