@@ -4,7 +4,11 @@ Final DEPI DevOps Project Steps:
 1-Prepare Machines:
 
 Ensure you have both master and slave machines ready, either locally or on EC2.
+
+
   run the following code when you the machine:
+
+  
  sudo apt update &&
  sudo apt install -y software-properties-common &&
  sudo add-apt-repository --yes --update ppa:ansible/ansible &&
