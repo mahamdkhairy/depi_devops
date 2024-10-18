@@ -13,9 +13,10 @@ run the following code when on the master machine:
  sudo apt install -y ansible &&
  for pkg in docker.io docker-doc docker-compose docker-compose-v2 podman-docker containerd runc; do sudo apt-get remove $pkg; done &&
  curl -fsSL https://get.docker.com -o get-docker.sh &&
-sudo sh get-docker.sh &&
-Executing docker install script, commit: 7cae5f8b0decc17d6571f9f52eb840fbc13b2737
-<...> &&
+ sudo sh get-docker.sh &&
+ Executing docker install script, commit: 7cae5f8b0decc17d6571f9f52eb840fbc13b2737
+<...> 
+&&
  sudo docker run -dit --name jenkins-server -v /var/run/docker.sock:/var/run/docker.sock -p 8080:8080 -v jenkins_home:/var/jenkins_home jenkins/jenkins:lts
  
 
