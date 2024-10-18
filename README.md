@@ -3,6 +3,14 @@ Final DEPI DevOps Project Steps:
 
 1-Prepare Machines:
   Ensure you have both master and slave machines ready, either locally or on EC2.
+  run the following code when you the machine:
+ sudo apt update &&
+ sudo apt install -y software-properties-common &&
+ sudo add-apt-repository --yes --update ppa:ansible/ansible &&
+ sudo apt install -y ansible &&
+ git clone https://github.com/mahamdkhairy/depi_devops.git &&
+ ansible-playbook /home/ubuntu/depi_devops/Ansible/playbook.yml
+
 
 2-Install Jenkins:
   On the master machine, install Jenkins as a container.
