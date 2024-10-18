@@ -11,8 +11,9 @@ run the following code when on the master machine:
  sudo apt install -y software-properties-common &&
  sudo add-apt-repository --yes --update ppa:ansible/ansible &&
  sudo apt install -y ansible &&
- git clone https://github.com/mahamdkhairy/depi_devops.git &&
- ansible-playbook /home/ubuntu/depi_devops/Ansible/playbook.yml &&
+ for pkg in docker.io docker-doc docker-compose docker-compose-v2 podman-docker containerd runc; do sudo apt-get remove $pkg; done &&
+ curl -fsSL https://get.docker.com -o get-docker.sh &&
+ sudo sh ./get-docker.sh --dry-run && 
  sudo docker run -dit --name jenkins-server -v /var/run/docker.sock:/var/run/docker.sock -p 8080:8080 -v jenkins_home:/var/jenkins_home jenkins/jenkins:lts
  
 
