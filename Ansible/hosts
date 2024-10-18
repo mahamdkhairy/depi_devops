@@ -1,0 +1,2 @@
+[master]
+master ansible_connection=local
