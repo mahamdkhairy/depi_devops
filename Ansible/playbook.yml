@@ -1,5 +1,5 @@
 - name: Setup Slave
-  hosts: slave
+  hosts: localhost
   become: true
   roles:
     - geerlingguy.docker
