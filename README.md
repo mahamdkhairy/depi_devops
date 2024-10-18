@@ -5,8 +5,17 @@ Final DEPI DevOps Project Steps:
 
 Ensure you have both master and slave machines ready, either locally or on EC2.
 
+run the following code when on the master machine:
+ sudo apt update &&
+ sudo apt install -y software-properties-common &&
+ sudo add-apt-repository --yes --update ppa:ansible/ansible &&
+ sudo apt install -y ansible &&
+ git clone https://github.com/mahamdkhairy/depi_devops.git &&
+ ansible-playbook /home/ubuntu/depi_devops/Ansible/playbook.yml
+ 
 
-  run the following code when you the machine:
+
+run the following code when on the slave machine:
 
   
  sudo apt update &&
