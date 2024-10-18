@@ -11,7 +11,6 @@ run the following code when on the master machine:
  sudo apt install -y software-properties-common &&
  sudo add-apt-repository --yes --update ppa:ansible/ansible &&
  sudo apt install -y ansible &&
- # Add Docker's official GPG key:
 sudo apt-get update &&
 sudo apt-get install ca-certificates curl &&
 sudo install -m 0755 -d /etc/apt/keyrings &&
