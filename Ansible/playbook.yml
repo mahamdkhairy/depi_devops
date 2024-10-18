@@ -7,14 +7,14 @@
     # - geerlingguy.jenkins
     # - geerlingguy.nodejs
   tasks:
-     - name: Add APT repository for Java
-       apt_repository:
-         repo: 'ppa:linuxuprising/java'
-         state: present
+     # - name: Add APT repository for Java
+     #   apt_repository:
+     #     repo: 'ppa:linuxuprising/java'
+     #     state: present
 
-     - name: Update APT package lists
-       apt:
-         update_cache: yes
+     # - name: Update APT package lists
+     #   apt:
+     #     update_cache: yes
 
      - name: Install Java 17
        apt:
