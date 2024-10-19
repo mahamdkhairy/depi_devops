@@ -11,7 +11,7 @@ pipeline {
         stage('Test') { 
             steps { 
                 sh 'sudo apt install -y nodejs npm'
-                 dir('nodeapp') 
+                 dir('nodeapp') {
                     sh 'npm install'
                     sh 'npm test'
                 // sh 'npm install'
