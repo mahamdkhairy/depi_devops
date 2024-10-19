@@ -28,7 +28,10 @@ run the following code when on the slave machine:
  ansible-playbook /home/ubuntu/depi_devops/Ansible/playbook.yml &&
  sudo mkdir -p /var/jenkins &&
  sudo chown -R ubuntu:ubuntu /var/jenkins &&
- sudo chmod -R 755 /var/jenkins
+ sudo chmod -R 755 /var/jenkins &&
+ sudo usermod -aG docker ubuntu &&
+ sudo systemctl restart docker
+
 
 
 
