@@ -25,7 +25,11 @@ run the following code when on the slave machine:
  sudo add-apt-repository --yes --update ppa:ansible/ansible &&
  sudo apt install -y ansible &&
  git clone https://github.com/mahamdkhairy/depi_devops.git &&
- ansible-playbook /home/ubuntu/depi_devops/Ansible/playbook.yml
+ ansible-playbook /home/ubuntu/depi_devops/Ansible/playbook.yml &&
+ sudo mkdir -p /var/jenkins &&
+ sudo chown -R ubuntu:ubuntu /var/jenkins &&
+ sudo chmod -R 755 /var/jenkins
+
 
 
 2-Install Jenkins:
