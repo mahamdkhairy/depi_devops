@@ -11,8 +11,11 @@ pipeline {
         stage('Test') { 
             steps { 
                 sh 'sudo apt install -y nodejs npm'
-                sh 'npm install'
-                sh 'npm test'
+                 dir('nodeapp') 
+                    sh 'npm install'
+                    sh 'npm test'
+                // sh 'npm install'
+                // sh 'npm test'
             }
             post {
                 success {
