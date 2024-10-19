@@ -34,7 +34,7 @@ pipeline {
         stage('build') {
             steps {
                 withCredentials([usernamePassword(credentialsId: "docker", usernameVariable: "USER", passwordVariable: "PASS")]) {
-                    sh 'docker build . -f dockerfile -t ${USER}/nodejs-iamge:v1.${BUILD_NUMBER}'
+                    sh 'sudo docker build . -f dockerfile -t ${USER}/nodejs-iamge:v1.${BUILD_NUMBER}'
                     sh 'docker login -u ${USER} -p ${PASS}'
                     sh 'docker push ${USER}/nodejs-iamge:v1.${BUILD_NUMBER}'
                     sh 'docker rm -f test'
