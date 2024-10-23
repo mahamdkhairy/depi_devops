@@ -49,7 +49,7 @@ pipeline {
             slackSend(
                 channel: "devops",
                 color: "good",
-                message: "${env.JOB_NAME} succeeded. Build no. ${env.BUILD_NUMBER} (<https://hub.docker.com/repository/docker/${USER}/nodejs-iamge/general|Open the image link>)"
+                message: "${env.JOB_NAME} succeeded. Build no. ${env.BUILD_NUMBER} (<https://hub.docker.com/repository/docker/mohamedmousa91/nodejs-iamge/general|Open the image link>)"
             )
         }
         failure {
